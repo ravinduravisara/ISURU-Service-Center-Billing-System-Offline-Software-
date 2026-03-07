@@ -1,0 +1,16 @@
+ Application.Run(new BillingForm());
+
+
+make it more to adavanced and attractive level designing the boarders of the table and regenerate the full code
+
+Admin username - Isuru@6800
+           password - Isuru@service
+
+Other username - User@123
+           password - User@service
+
+engine oil change,Filters replacement,and cutom item the rate should be generate from Item ID in Inventory Management
+
+You must publish again:
+
+dotnet publish -c Release -r win-x64 --self-contained true
