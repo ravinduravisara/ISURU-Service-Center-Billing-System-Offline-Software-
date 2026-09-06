@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ISURU Service Center</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="/css/site.css?v=20260906" />
+    <link rel="stylesheet" href="/css/site.css?v=20260907" />
     <style>
         * { box-sizing: border-box; }
         html, body { margin: 0; min-height: 100%; }
@@ -14,6 +14,7 @@
         .desktop-header { color: #fff; }
         .menu-bar { min-height: 32px; padding: 0 10px; display: flex; align-items: center; gap: 20px; background: #1e88e5; }
         .desktop-brand { color: #fff; font-weight: 600; white-space: nowrap; }
+        .mobile-nav-select { display: none; }
         .main-nav { display: flex; gap: 0; flex: 1; }
         .main-nav a { color: #fff; padding: 8px 12px; font-size: 13px; }
         .main-nav a:hover { background: #1565c0; }
@@ -58,12 +59,43 @@
         .empty-state.compact { padding: 25px 20px; }
         .inline-form { display: inline; }
         .danger-link { border: 0; background: transparent; color: #b3261e; cursor: pointer; }
-        @@media (max-width: 760px) { .metric-grid { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } .menu-bar { flex-wrap: wrap; padding: 6px 10px; } .main-nav { order: 3; flex-basis: 100%; } }
+        @@media (max-width: 760px) {
+            .menu-bar { flex-wrap: wrap; padding: 8px 12px; gap: 10px; }
+            .main-nav { display: none; }
+            .mobile-nav-select { display: block; order: 3; flex-basis: 100%; min-height: 40px; border: 1px solid #90caf9; }
+            .user-menu { margin-left: 0; }
+            .title-bar { padding: 12px; }
+            .title-bar strong { font-size: 16px; }
+            .app-container { padding: 16px 12px 35px; }
+            .page-heading, .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+            .page-heading .button, .section-heading .button { width: 100%; }
+            .metric-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-actions { grid-column: auto; flex-wrap: wrap; }
+            .form-actions .button { flex: 1 1 140px; }
+            .invoice-header .section-heading .compact-field { width: 100%; }
+            .invoice-totals { align-items: stretch; flex-direction: column; gap: 16px; }
+            .totals-panel { min-width: 0; width: 100%; }
+            .print-invoice { padding: 16px; }
+            .print-header, .print-customer { flex-direction: column; gap: 12px; }
+            .print-meta { text-align: left; }
+        }
+        @@media (max-width: 480px) {
+            .desktop-brand { font-size: 13px; }
+            .user-menu { width: 100%; justify-content: space-between; }
+            .metric-grid { grid-template-columns: 1fr; }
+            .content-section, .form-section { padding: 12px; }
+            h1 { font-size: 21px; }
+            h2 { font-size: 17px; }
+            .toolbar { flex-direction: column; }
+            .toolbar input { max-width: none; }
+            .button { min-height: 38px; }
+        }
     </style>
 </head>
 <body>
     <header class="desktop-header">
-        <div class="menu-bar"><a class="desktop-brand" asp-controller="Dashboard" asp-action="Index">ISURU Service Center</a><nav class="main-nav"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a><a asp-controller="Customers" asp-action="Index">Customers</a><a asp-controller="Services" asp-action="Index">Services</a><a asp-controller="Inventory" asp-action="Index">Inventory</a><a asp-controller="Suppliers" asp-action="Index">Suppliers</a><a asp-controller="SupplyInvoices" asp-action="Index">Supply Invoices</a><a asp-controller="Invoices" asp-action="Index">Invoices</a><a asp-controller="Profit" asp-action="Index">Profit Statement</a><a asp-controller="Billing" asp-action="Create">New Bill</a>@if (User.IsInRole("Admin")) { <a asp-controller="Settings" asp-action="Index">Settings</a> }</nav><div class="user-menu"><span>@User.Identity?.Name</span><form asp-controller="Account" asp-action="Logout" method="post"><button type="submit" class="button button-quiet">Logout</button></form></div></div>
+        <div class="menu-bar"><a class="desktop-brand" asp-controller="Dashboard" asp-action="Index">ISURU Service Center</a><nav class="main-nav" id="main-navigation"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a><a asp-controller="Customers" asp-action="Index">Customers</a><a asp-controller="Services" asp-action="Index">Services</a><a asp-controller="Inventory" asp-action="Index">Inventory</a><a asp-controller="Suppliers" asp-action="Index">Suppliers</a><a asp-controller="SupplyInvoices" asp-action="Index">Supply Invoices</a><a asp-controller="Invoices" asp-action="Index">Invoices</a><a asp-controller="Profit" asp-action="Index">Profit Statement</a><a asp-controller="Billing" asp-action="Create">New Bill</a>@if (User.IsInRole("Admin")) { <a asp-controller="Settings" asp-action="Index">Settings</a> }</nav><select class="mobile-nav-select" aria-label="Navigate to" onchange="if (this.value) window.location.href = this.value"><option value="">Navigate to...</option><option value="@Url.Action("Index", "Dashboard")">Dashboard</option><option value="@Url.Action("Index", "Customers")">Customers</option><option value="@Url.Action("Index", "Services")">Services</option><option value="@Url.Action("Index", "Inventory")">Inventory</option><option value="@Url.Action("Index", "Suppliers")">Suppliers</option><option value="@Url.Action("Index", "SupplyInvoices")">Supply Invoices</option><option value="@Url.Action("Index", "Invoices")">Invoices</option><option value="@Url.Action("Index", "Profit")">Profit Statement</option><option value="@Url.Action("Create", "Billing")">New Bill</option>@if (User.IsInRole("Admin")) { <option value="@Url.Action("Index", "Settings")">Settings</option> }</select><div class="user-menu"><span>@User.Identity?.Name</span><form asp-controller="Account" asp-action="Logout" method="post"><button type="submit" class="button button-quiet">Logout</button></form></div></div>
         <div class="title-bar"><div><strong>Service Station Billing System</strong><span>Billing and service management</span></div><span class="role-badge">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span></div>
     </header>
     <div class="app-container">
