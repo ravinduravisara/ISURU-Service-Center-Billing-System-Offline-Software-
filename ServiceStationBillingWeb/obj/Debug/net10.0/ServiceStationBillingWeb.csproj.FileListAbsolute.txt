@@ -124,4 +124,4 @@
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/ServiceStationBillingWeb.genruntimeconfig.cache
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/ref/ServiceStationBillingWeb.dll
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/1yomz3l9oh-{0}-3e3kbtbypl-3e3kbtbypl.gz
-/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/qex42apn4m-{0}-ahxp4jaasr-ahxp4jaasr.gz
+/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/qex42apn4m-{0}-2ib6ln2rpx-2ib6ln2rpx.gz
