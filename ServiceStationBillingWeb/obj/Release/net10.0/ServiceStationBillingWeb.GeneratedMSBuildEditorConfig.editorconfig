@@ -1,0 +1,132 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ServiceStationBillingWeb
+build_property.RootNamespace = ServiceStationBillingWeb
+build_property.ProjectDir = /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Account/Denied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9EZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Billing/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlsbGluZy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Customers/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJzL0Zvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Inventory/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52ZW50b3J5L0Zvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Inventory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52ZW50b3J5L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Invoices/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZXMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Invoices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Profit/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZml0L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Profit/Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZml0L1ByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Services/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZXMvRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Services/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Settings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2V0dGluZ3MvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Shared/_AuthLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BdXRoTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Suppliers/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwcGxpZXJzL0Zvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Suppliers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwcGxpZXJzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/SupplyInvoices/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwcGx5SW52b2ljZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/SupplyInvoices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwcGx5SW52b2ljZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5wa0mo6ujm

@@ -1,0 +1,16 @@
+@model ServiceStationBillingWeb.Models.CustomerFormViewModel
+@{
+    var editing = Model.Id != 0;
+    ViewData["Title"] = editing ? "Edit customer" : "Add customer";
+}
+<div class="page-heading"><div><p class="eyebrow">Customer records</p><h1>@ViewData["Title"]</h1></div></div>
+<section class="form-section">
+    <form asp-action="@(editing ? "Edit" : "Create")" method="post" class="form-grid">
+        <input asp-for="Id" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <div class="field"><label asp-for="Name"></label><input asp-for="Name" autofocus /><span asp-validation-for="Name" class="validation"></span></div>
+        <div class="field"><label asp-for="Phone"></label><input asp-for="Phone" /><span asp-validation-for="Phone" class="validation"></span></div>
+        <div class="form-actions"><button class="button button-primary" type="submit">Save customer</button><a class="button button-quiet" asp-action="Index">Cancel</a></div>
+    </form>
+</section>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

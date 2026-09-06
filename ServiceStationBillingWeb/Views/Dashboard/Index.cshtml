@@ -1,0 +1,36 @@
+@model ServiceStationBillingWeb.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">Overview</p>
+        <h1>Good day, @User.Identity?.Name</h1>
+    </div>
+    <span class="role-badge">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span>
+</div>
+
+<section class="metric-grid">
+    <article class="metric-card"><span>Customers</span><strong>@Model.Customers</strong><a asp-controller="Customers" asp-action="Index">Open records</a></article>
+    <article class="metric-card"><span>Vehicles</span><strong>@Model.Vehicles</strong><span class="metric-note">Registered vehicles</span></article>
+    <article class="metric-card"><span>Invoices</span><strong>@Model.Invoices</strong><a asp-controller="Invoices" asp-action="Index">View invoices</a></article>
+    <article class="metric-card accent"><span>Total revenue</span><strong>@Model.Revenue.ToString("N2")</strong><span class="metric-note">All recorded invoices</span></article>
+</section>
+
+<section class="content-section">
+    <div class="section-heading"><div><p class="eyebrow">Latest activity</p><h2>Recent invoices</h2></div><a class="button button-secondary" asp-controller="Billing" asp-action="Create">New invoice</a></div>
+    @if (Model.RecentInvoices.Count == 0)
+    {
+        <div class="empty-state compact"><p>No invoices have been recorded yet.</p><a class="button button-primary" asp-controller="Billing" asp-action="Create">Create the first invoice</a></div>
+    }
+    else
+    {
+        <div class="table-wrap"><table><thead><tr><th>Bill</th><th>Customer</th><th>Date</th><th>Status</th><th class="number">Amount</th></tr></thead><tbody>
+        @foreach (var invoice in Model.RecentInvoices)
+        {
+            <tr><td class="strong">@invoice.BillNo</td><td>@invoice.CustomerName</td><td>@invoice.DateTime</td><td><span class="status">@invoice.PaymentStatus</span></td><td class="number">@invoice.TotalAmount.ToString("N2")</td></tr>
+        }
+        </tbody></table></div>
+    }
+</section>

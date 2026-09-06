@@ -1,0 +1,11 @@
+@model ServiceStationBillingWeb.Models.InvoiceDetailViewModel
+@{
+    ViewData["Title"] = $"Invoice {Model.Invoice.BillNo}";
+}
+<div class="page-heading no-print"><div><p class="eyebrow">Invoice</p><h1>@Model.Invoice.BillNo</h1></div><div><button class="button button-primary" type="button" onclick="window.print()">Print invoice</button><a class="button button-quiet" asp-action="Index">Back to invoices</a></div></div>
+<article class="print-invoice">
+    <header class="print-header"><div><h1>ISURU Service Center</h1><p>Service invoice</p></div><div class="print-meta"><strong>@Model.Invoice.BillNo</strong><span>@Model.Invoice.DateTime</span></div></header>
+    <section class="print-customer"><div><strong>Customer</strong><span>@Model.Invoice.CustomerName</span><span>@Model.CustomerPhone</span></div><div><strong>Vehicle</strong><span>@Model.Invoice.VehicleNo</span><span>@Model.VehicleType</span></div><div><strong>Payment</strong><span>@Model.Invoice.PaymentMethod</span><span>@Model.Invoice.PaymentStatus</span></div></section>
+    <table><thead><tr><th>Service</th><th>Item ID</th><th>Description</th><th class="number">Qty</th><th class="number">Rate</th><th class="number">Amount</th></tr></thead><tbody>@foreach (var item in Model.Items) { <tr><td>@item.Service</td><td>@item.ItemId</td><td>@item.Description</td><td class="number">@item.Quantity.ToString("0.##")</td><td class="number">@item.Rate.ToString("N2")</td><td class="number">@item.Amount.ToString("N2")</td></tr> }</tbody></table>
+    <div class="print-totals"><div>Subtotal <strong>@Model.Invoice.Subtotal.ToString("N2")</strong></div><div>Discount <strong>@Model.Invoice.Discount.ToString("N2")</strong></div><div class="print-grand-total">Total <strong>@Model.Invoice.TotalAmount.ToString("N2")</strong></div></div>
+</article>

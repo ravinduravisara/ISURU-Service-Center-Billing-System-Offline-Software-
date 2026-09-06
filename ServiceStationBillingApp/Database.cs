@@ -4,9 +4,10 @@ using Microsoft.Data.Sqlite;
 
 namespace ServiceStationBillingApp
 {
-    internal static class Database
+    public static class Database
     {
-        private static readonly string DbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "billing.db");
+        private static readonly string DbPath = Environment.GetEnvironmentVariable("BILLING_DB_PATH")
+            ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "billing.db");
         public static string ConnectionString => $"Data Source={DbPath}";
 
         public static string GetDbPath() => DbPath;
@@ -137,6 +138,17 @@ namespace ServiceStationBillingApp
                 addCol.ExecuteNonQuery();
             }
             catch { }
+
+            foreach (var column in new[] { "subtotal_amount REAL NOT NULL DEFAULT 0", "discount_amount REAL NOT NULL DEFAULT 0" })
+            {
+                try
+                {
+                    using var addInvoiceColumn = conn.CreateCommand();
+                    addInvoiceColumn.CommandText = $"ALTER TABLE invoices ADD COLUMN {column}";
+                    addInvoiceColumn.ExecuteNonQuery();
+                }
+                catch { }
+            }
 
             try
             {

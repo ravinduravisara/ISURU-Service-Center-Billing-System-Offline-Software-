@@ -1,0 +1,87 @@
+@model ServiceStationBillingWeb.Models.BillingViewModel
+@{
+    ViewData["Title"] = "New invoice";
+}
+<div class="page-heading"><div><p class="eyebrow">Billing</p><h1>New invoice</h1></div><a class="button button-quiet" asp-controller="Invoices" asp-action="Index">Cancel</a></div>
+<section class="form-section">
+    @if (Model.Customers.Count == 0)
+    {
+        <div class="empty-state compact"><p>Add a customer before creating an invoice.</p><a class="button button-primary" asp-controller="Customers" asp-action="Create">Add customer</a></div>
+    }
+    else
+    {
+        <form asp-action="Create" method="post" class="invoice-form" id="invoice-form">
+            <div asp-validation-summary="ModelOnly" class="validation"></div>
+            <section class="form-section invoice-header">
+                <div class="section-heading"><h2>Invoice details</h2><div class="field compact-field"><label asp-for="BillNo"></label><input asp-for="BillNo" /><span asp-validation-for="BillNo" class="validation"></span></div></div>
+                <div class="form-grid">
+                    <div class="field"><label asp-for="CustomerId"></label><select asp-for="CustomerId" id="customer-select"><option value="">Select customer</option>@foreach (var customer in Model.Customers) { <option value="@customer.Id" data-name="@customer.Name" data-phone="@customer.Phone">@customer.Name</option> }</select><span asp-validation-for="CustomerId" class="validation"></span></div>
+                    <div class="field"><label asp-for="CustomerName"></label><input asp-for="CustomerName" id="customer-name" readonly /></div>
+                    <div class="field"><label asp-for="CustomerPhone"></label><input asp-for="CustomerPhone" id="customer-phone" readonly /></div>
+                    <div class="field"><label asp-for="VehicleNo"></label><input asp-for="VehicleNo" placeholder="e.g. WP CAB-1234" /><span asp-validation-for="VehicleNo" class="validation"></span></div>
+                    <div class="field"><label asp-for="VehicleType"></label><input asp-for="VehicleType" placeholder="Car, Van, Motorcycle" /></div>
+                    <div class="field"><label asp-for="PaymentMethod"></label><select asp-for="PaymentMethod"><option>Cash</option><option>Card</option><option>Cheque</option><option>Credit</option></select></div>
+                </div>
+            </section>
+            <section class="form-section invoice-items-section">
+                <div class="section-heading"><h2>Services and items</h2><button class="button button-secondary" type="button" id="add-row">Add row</button></div>
+                <div class="table-wrap"><table class="invoice-items"><thead><tr><th>Service</th><th>Item ID</th><th>Description</th><th class="number">Qty</th><th class="number">Rate</th><th class="number">Amount</th><th></th></tr></thead><tbody id="items-body">
+                @for (var i = 0; i < Model.Items.Count; i++)
+                {
+                    <tr class="item-row"><td><select name="Items[@i].Service" class="service-select"><option value="">Select service</option>@foreach (var service in Model.Services) { <option value="@service.Name" data-price="@service.Price" data-description="@service.Description" selected="@(Model.Items[i].Service == service.Name)">@service.Name</option> }</select></td><td><input name="Items[@i].ItemId" value="@Model.Items[i].ItemId" /></td><td><input name="Items[@i].Description" value="@Model.Items[i].Description" class="description-input" /></td><td><input name="Items[@i].Quantity" value="@Model.Items[i].Quantity" class="quantity-input number-input" type="number" min="0.01" step="0.01" /></td><td><input name="Items[@i].Rate" value="@Model.Items[i].Rate" class="rate-input number-input" type="number" min="0" step="0.01" /></td><td><input name="Items[@i].Amount" value="@Model.Items[i].Amount" class="amount-input number-input" readonly /></td><td><button class="button button-quiet remove-row" type="button" title="Remove row">Remove</button></td></tr>
+                }
+                </tbody></table></div>
+            </section>
+            <section class="form-section invoice-totals"><div class="totals-panel"><div><span>Subtotal</span><strong id="subtotal">0.00</strong></div><div class="discount-line"><label asp-for="Discount"></label><input asp-for="Discount" id="discount" type="number" min="0" step="0.01" /></div><div class="total-line"><span>Total</span><strong id="total">0.00</strong></div></div><div class="form-actions"><button class="button button-primary" type="submit">Save invoice</button><a class="button button-quiet" asp-controller="Invoices" asp-action="Index">Cancel</a></div></section>
+            </form>
+        }
+    }
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (() => {
+            const body = document.getElementById('items-body');
+            if (!body) return;
+            const customer = document.getElementById('customer-select');
+            const name = document.getElementById('customer-name');
+            const phone = document.getElementById('customer-phone');
+            const money = value => Number(value || 0).toFixed(2);
+            const updateTotals = () => {
+                let subtotal = 0;
+                body.querySelectorAll('.item-row').forEach(row => {
+                    const quantity = Number(row.querySelector('.quantity-input').value || 0);
+                    const rate = Number(row.querySelector('.rate-input').value || 0);
+                    const amount = quantity * rate;
+                    row.querySelector('.amount-input').value = money(amount);
+                    subtotal += amount;
+                });
+                const discount = Number(document.getElementById('discount').value || 0);
+                document.getElementById('subtotal').textContent = money(subtotal);
+                document.getElementById('total').textContent = money(Math.max(0, subtotal - discount));
+            };
+            const bindRow = row => {
+                row.querySelector('.service-select').addEventListener('change', event => {
+                    const option = event.target.selectedOptions[0];
+                    row.querySelector('.rate-input').value = option?.dataset.price || '0';
+                    const description = row.querySelector('.description-input');
+                    if (!description.value) description.value = option?.dataset.description || '';
+                    updateTotals();
+                });
+                row.querySelectorAll('input').forEach(input => input.addEventListener('input', updateTotals));
+                row.querySelector('.remove-row').addEventListener('click', () => { if (body.children.length > 1) { row.remove(); renumber(); updateTotals(); } });
+            };
+            const renumber = () => body.querySelectorAll('.item-row').forEach((row, index) => row.querySelectorAll('input, select').forEach(input => input.name = input.name.replace(/Items\[\d+\]/, `Items[${index}]`)));
+            document.getElementById('add-row').addEventListener('click', () => {
+                const row = body.querySelector('.item-row').cloneNode(true);
+                row.querySelectorAll('input').forEach(input => input.value = input.classList.contains('quantity-input') ? '1' : '');
+                row.querySelector('.service-select').selectedIndex = 0;
+                body.appendChild(row); renumber(); bindRow(row); updateTotals();
+            });
+            customer.addEventListener('change', () => { const option = customer.selectedOptions[0]; name.value = option?.dataset.name || ''; phone.value = option?.dataset.phone || ''; });
+            body.querySelectorAll('.item-row').forEach(bindRow);
+            document.getElementById('discount').addEventListener('input', updateTotals);
+            customer.dispatchEvent(new Event('change'));
+            updateTotals();
+        })();
+    </script>
+}
