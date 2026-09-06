@@ -51,7 +51,6 @@
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/scopedcss/bundle/ServiceStationBillingWeb.styles.css
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/scopedcss/projectbundle/ServiceStationBillingWeb.bundle.scp.css
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/5mx8i9brkk-{0}-61n19gt1b8-61n19gt1b8.gz
-/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/1yomz3l9oh-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/khfih6loni-{0}-bqjiyaj88i-bqjiyaj88i.gz
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/4r0tefgdjv-{0}-c2jlpeoesf-c2jlpeoesf.gz
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/t1qgbh82i9-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -124,4 +123,5 @@
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/ServiceStationBillingWeb.pdb
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/ServiceStationBillingWeb.genruntimeconfig.cache
 /Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/ref/ServiceStationBillingWeb.dll
-/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/qex42apn4m-{0}-w5c4vkipge-w5c4vkipge.gz
+/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/1yomz3l9oh-{0}-3e3kbtbypl-3e3kbtbypl.gz
+/Users/ravinduravisara/Documents/Github/ISURU-Service-Center-Billing-System-Offline-Software-/ServiceStationBillingWeb/obj/Debug/net10.0/compressed/qex42apn4m-{0}-ahxp4jaasr-ahxp4jaasr.gz

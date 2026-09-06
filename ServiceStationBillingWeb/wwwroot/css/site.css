@@ -83,6 +83,17 @@ input:focus, select:focus { border-color: var(--teal); outline: 2px solid #bde0d
 .total-line { border-top: 1px solid #999; margin-top: 4px; padding-top: 12px !important; }
 .total-line strong { font-size: 22px; }
 .invoice-totals .form-actions { align-items: center; }
+@media (max-width: 800px) {
+  .app-container { padding: 18px 14px 40px; }
+  .page-heading, .section-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .page-heading .button, .section-heading .button { width: 100%; }
+  .form-actions { flex-wrap: wrap; }
+  .invoice-totals { align-items: stretch; flex-direction: column; gap: 16px; }
+  .totals-panel { min-width: 0; width: 100%; }
+  .print-invoice { padding: 18px; }
+  .print-header, .print-customer { flex-direction: column; gap: 14px; }
+  .print-meta { text-align: left; }
+}
 @media print { .desktop-header, .page-heading, .button, .invoice-form { display: none !important; } }
 .print-invoice { background: white; border: 1px solid #c9c9c9; padding: 28px; max-width: 900px; margin: auto; }
 .print-header, .print-customer { display: flex; justify-content: space-between; gap: 24px; border-bottom: 1px solid #999; padding-bottom: 16px; margin-bottom: 18px; }
@@ -109,18 +120,24 @@ input:focus, select:focus { border-color: var(--teal); outline: 2px solid #bde0d
 .auth-form input { margin-bottom: 9px; }
 .auth-form .button { margin-top: 8px; }
 @media (max-width: 800px) {
-  .app-header-inner { align-items: flex-start; flex-wrap: wrap; padding: 20px; gap: 17px; }
-  .main-nav { order: 3; flex-basis: 100%; gap: 20px; }
-  .user-menu { margin-left: auto; }
-  .app-container { padding: 35px 18px 60px; }
+  .menu-bar { flex-wrap: wrap; padding: 8px 12px; gap: 10px; }
+  .main-nav { display: none; }
+  .mobile-nav-select { display: block; order: 3; flex-basis: 100%; min-height: 40px; border: 1px solid #90caf9; }
+  .user-menu { margin-left: 0; }
+  .title-bar { padding: 12px; }
+  .title-bar strong { font-size: 16px; }
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
   .form-grid { grid-template-columns: 1fr; }
   .form-actions { grid-column: auto; }
 }
 @media (max-width: 480px) {
+  .desktop-brand { font-size: 13px; }
+  .user-menu { width: 100%; justify-content: space-between; }
   .metric-grid { grid-template-columns: 1fr; }
-  .page-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
-  .auth-panel { padding: 32px 24px; }
-  .toolbar { flex-wrap: wrap; }
+  .content-section, .form-section { padding: 12px; }
+  .page-heading h1 { font-size: 21px; }
+  .auth-panel { padding: 24px 18px; }
+  .toolbar { flex-direction: column; }
   .toolbar input { max-width: none; }
+  .button { min-height: 38px; }
 }
