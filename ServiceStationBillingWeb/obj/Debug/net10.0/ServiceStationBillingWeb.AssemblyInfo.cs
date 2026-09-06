@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServiceStationBillingWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82c1fbea91fd05b72c5513467008da3815c9ea6f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6f35ec3df14cb747841b07bfff71a92d2bceb6b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServiceStationBillingWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServiceStationBillingWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

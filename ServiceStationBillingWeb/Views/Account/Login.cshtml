@@ -5,25 +5,46 @@
 }
 
 <div class="auth-panel">
-    <div class="brand-mark">ISURU</div>
-    <h1>Select Login and Sign In</h1>
-    <div class="auth-presets">
-        <button type="button" onclick="document.getElementById('Username').value='Isuru@6800'; document.getElementById('Password').focus();">Admin</button>
-        <button type="button" onclick="document.getElementById('Username').value='User@123'; document.getElementById('Password').focus();">Other User</button>
+    <div class="auth-brand-row"><div class="brand-mark">ISURU</div><span class="auth-status">Offline billing</span></div>
+    <p class="eyebrow">Service Center Billing System</p>
+    <h1>Welcome back</h1>
+    <p class="auth-intro">Sign in to manage customers, invoices, services, and inventory.</p>
+    <div class="auth-presets" aria-label="Choose an account">
+        <button type="button" class="auth-preset is-selected" data-username="Isuru@6800"><strong>Admin</strong><span>Full system access</span></button>
+        <button type="button" class="auth-preset" data-username="User@123"><strong>Staff user</strong><span>Daily billing access</span></button>
     </div>
-    <form asp-action="Login" method="post" class="auth-form">
+    <form asp-action="Login" method="post" class="auth-form" id="login-form">
         <input asp-for="ReturnUrl" type="hidden" />
-        <div asp-validation-summary="ModelOnly" class="validation"></div>
-        <label asp-for="Username">Username</label>
-        <input asp-for="Username" autocomplete="username" autofocus />
+        <div asp-validation-summary="ModelOnly" class="validation auth-summary" role="alert"></div>
+        <div class="auth-field"><label asp-for="Username">Username</label><input asp-for="Username" autocomplete="username" autofocus placeholder="Enter your username" /></div>
         <span asp-validation-for="Username" class="validation"></span>
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" autocomplete="current-password" />
+        <div class="auth-field"><label asp-for="Password">Password</label><div class="password-field"><input asp-for="Password" autocomplete="current-password" placeholder="Enter your password" /><button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false">Show</button></div></div>
         <span asp-validation-for="Password" class="validation"></span>
-        <button type="submit" class="button button-primary">Login</button>
+        <button type="submit" class="button button-primary auth-submit">Sign in <span aria-hidden="true">&#8594;</span></button>
     </form>
+    <p class="auth-footnote">Your data stays on this device.</p>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        (() => {
+            const username = document.getElementById('Username');
+            const password = document.getElementById('Password');
+            const toggle = document.querySelector('.password-toggle');
+            document.querySelectorAll('.auth-preset').forEach(preset => preset.addEventListener('click', () => {
+                document.querySelectorAll('.auth-preset').forEach(item => item.classList.remove('is-selected'));
+                preset.classList.add('is-selected');
+                username.value = preset.dataset.username;
+                password.focus();
+            }));
+            toggle?.addEventListener('click', () => {
+                const visible = password.type === 'text';
+                password.type = visible ? 'password' : 'text';
+                toggle.textContent = visible ? 'Show' : 'Hide';
+                toggle.setAttribute('aria-label', visible ? 'Show password' : 'Hide password');
+                toggle.setAttribute('aria-pressed', String(!visible));
+            });
+        })();
+    </script>
 }
