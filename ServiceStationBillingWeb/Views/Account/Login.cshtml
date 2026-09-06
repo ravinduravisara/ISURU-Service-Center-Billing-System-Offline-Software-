@@ -1,0 +1,29 @@
+@model ServiceStationBillingWeb.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Sign in";
+    Layout = "_AuthLayout";
+}
+
+<div class="auth-panel">
+    <div class="brand-mark">ISURU</div>
+    <h1>Select Login and Sign In</h1>
+    <div class="auth-presets">
+        <button type="button" onclick="document.getElementById('Username').value='Isuru@6800'; document.getElementById('Password').focus();">Admin</button>
+        <button type="button" onclick="document.getElementById('Username').value='User@123'; document.getElementById('Password').focus();">Other User</button>
+    </div>
+    <form asp-action="Login" method="post" class="auth-form">
+        <input asp-for="ReturnUrl" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <label asp-for="Username">Username</label>
+        <input asp-for="Username" autocomplete="username" autofocus />
+        <span asp-validation-for="Username" class="validation"></span>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" autocomplete="current-password" />
+        <span asp-validation-for="Password" class="validation"></span>
+        <button type="submit" class="button button-primary">Login</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

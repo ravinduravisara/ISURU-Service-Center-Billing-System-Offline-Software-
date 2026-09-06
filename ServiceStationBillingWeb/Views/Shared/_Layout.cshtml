@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ISURU Service Center</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="/css/site.css?v=20260906" />
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; min-height: 100%; }
+        body { background: #f0f0f0; color: #1f2937; font: 14px "Segoe UI", Tahoma, sans-serif; }
+        a { color: #075eaa; text-decoration: none; }
+        .desktop-header { color: #fff; }
+        .menu-bar { min-height: 32px; padding: 0 10px; display: flex; align-items: center; gap: 20px; background: #1e88e5; }
+        .desktop-brand { color: #fff; font-weight: 600; white-space: nowrap; }
+        .main-nav { display: flex; gap: 0; flex: 1; }
+        .main-nav a { color: #fff; padding: 8px 12px; font-size: 13px; }
+        .main-nav a:hover { background: #1565c0; }
+        .user-menu { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+        .user-menu form { margin: 0; }
+        .title-bar { background: #0d47a1; min-height: 58px; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; }
+        .title-bar strong { display: block; font-size: 18px; }
+        .title-bar span:not(.role-badge) { color: #d6e6ff; font-size: 12px; }
+        .role-badge { border: 1px solid #aaa; background: #f5f5f5; color: #333; padding: 3px 7px; font-size: 12px; }
+        .app-container { max-width: 1100px; margin: auto; padding: 22px 18px 50px; }
+        .page-heading, .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 18px; }
+        h1 { margin: 0 0 5px; font: 600 24px "Segoe UI", sans-serif; }
+        h2 { margin: 0; font: 600 18px "Segoe UI", sans-serif; }
+        .eyebrow { color: #555; font-size: 12px; margin: 0 0 5px; }
+        .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+        .metric-card, .content-section, .form-section { background: #fff; border: 1px solid #c9c9c9; box-shadow: 0 1px 4px rgba(0,0,0,.14); }
+        .metric-card { min-height: 115px; padding: 14px; display: flex; flex-direction: column; gap: 5px; }
+        .metric-card strong { font-size: 24px; }
+        .metric-card a, .metric-note { margin-top: auto; font-size: 12px; }
+        .metric-card.accent { background: #e3f2fd; border-color: #90caf9; }
+        .content-section, .form-section { padding: 16px; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        th { background: #e5e5e5; color: #333; font-size: 12px; font-weight: 600; text-align: left; padding: 8px 10px; border: 1px solid #c7c7c7; }
+        td { padding: 8px 10px; border: 1px solid #e0e0e0; font-size: 13px; }
+        .number { text-align: right; }
+        .actions { text-align: right; white-space: nowrap; }
+        .button { display: inline-flex; align-items: center; justify-content: center; min-height: 31px; padding: 0 13px; border: 1px solid #888; background: #f5f5f5; color: #222; font: 600 13px "Segoe UI", sans-serif; cursor: pointer; }
+        .button-primary { background: #1e88e5; border-color: #1565c0; color: #fff; }
+        .button-secondary { background: #f5f5f5; color: #222; }
+        .button-quiet { background: #f5f5f5; color: #222; }
+        .toolbar { display: flex; gap: 8px; margin: -4px 0 16px; }
+        input, select { min-height: 31px; width: 100%; padding: 3px 7px; border: 1px solid #888; background: #fff; font: 14px "Segoe UI", sans-serif; }
+        .toolbar input { max-width: 360px; }
+        .form-grid { max-width: 720px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .field { display: flex; flex-direction: column; gap: 5px; }
+        .field label { font-weight: 600; font-size: 13px; }
+        .form-actions { grid-column: 1 / -1; display: flex; gap: 8px; padding-top: 5px; }
+        .validation { color: #b3261e; font-size: 12px; }
+        .notice { background: #e3f2fd; border: 1px solid #90caf9; margin-bottom: 16px; padding: 10px; }
+        .empty-state { padding: 35px 20px; text-align: center; }
+        .empty-state.compact { padding: 25px 20px; }
+        .inline-form { display: inline; }
+        .danger-link { border: 0; background: transparent; color: #b3261e; cursor: pointer; }
+        @@media (max-width: 760px) { .metric-grid { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } .menu-bar { flex-wrap: wrap; padding: 6px 10px; } .main-nav { order: 3; flex-basis: 100%; } }
+    </style>
+</head>
+<body>
+    <header class="desktop-header">
+        <div class="menu-bar"><a class="desktop-brand" asp-controller="Dashboard" asp-action="Index">ISURU Service Center</a><nav class="main-nav"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a><a asp-controller="Customers" asp-action="Index">Customers</a><a asp-controller="Services" asp-action="Index">Services</a><a asp-controller="Inventory" asp-action="Index">Inventory</a><a asp-controller="Suppliers" asp-action="Index">Suppliers</a><a asp-controller="SupplyInvoices" asp-action="Index">Supply Invoices</a><a asp-controller="Invoices" asp-action="Index">Invoices</a><a asp-controller="Profit" asp-action="Index">Profit Statement</a><a asp-controller="Billing" asp-action="Create">New Bill</a>@if (User.IsInRole("Admin")) { <a asp-controller="Settings" asp-action="Index">Settings</a> }</nav><div class="user-menu"><span>@User.Identity?.Name</span><form asp-controller="Account" asp-action="Logout" method="post"><button type="submit" class="button button-quiet">Logout</button></form></div></div>
+        <div class="title-bar"><div><strong>Service Station Billing System</strong><span>Billing and service management</span></div><span class="role-badge">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span></div>
+    </header>
+    <div class="app-container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

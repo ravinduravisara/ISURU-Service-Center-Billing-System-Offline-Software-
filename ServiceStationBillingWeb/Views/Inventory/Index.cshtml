@@ -1,0 +1,10 @@
+@model ServiceStationBillingWeb.Models.InventoryListViewModel
+@{
+    ViewData["Title"] = "Inventory";
+}
+<div class="page-heading"><div><p class="eyebrow">Stock records</p><h1>Inventory</h1></div>@if (User.IsInRole("Admin")) { <a class="button button-primary" asp-action="Create">Add item</a> }</div>
+@if (TempData["Notice"] is string notice) { <div class="notice">@notice</div> }
+<form method="get" class="toolbar"><input name="search" value="@Model.Search" placeholder="Search by item, brand or supplier" aria-label="Search inventory" /><button class="button button-secondary" type="submit">Search</button>@if (!string.IsNullOrWhiteSpace(Model.Search)) { <a class="button button-quiet" asp-action="Index">Clear</a> }</form>
+<section class="content-section"><div class="table-wrap"><table><thead><tr><th>Item ID</th><th>Item</th><th>Brand</th><th class="number">Quantity</th><th class="number">Unit price</th><th class="number">Buying price</th><th>Updated</th><th>Supplier</th><th>Payment</th><th class="actions">Actions</th></tr></thead><tbody>
+@foreach (var item in Model.Items) { <tr><td>@item.ItemId</td><td class="strong">@item.ItemName</td><td>@item.Brand</td><td class="number">@item.Quantity.ToString("N2")</td><td class="number">@item.UnitPrice.ToString("N2")</td><td class="number">@item.BuyingPrice.ToString("N2")</td><td>@item.UpdatedAt</td><td>@item.SupplierCode</td><td>@item.PaymentMethod</td><td class="actions">@if (User.IsInRole("Admin")) { <a class="text-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a><form asp-action="Delete" asp-route-id="@item.Id" method="post" class="inline-form" onsubmit="return confirm('Delete this inventory item?');"><button class="danger-link" type="submit">Delete</button></form> }</td></tr> }
+</tbody></table></div>@if (Model.Items.Count == 0) { <div class="empty-state compact"><p>No inventory items match this search.</p></div> }</section>

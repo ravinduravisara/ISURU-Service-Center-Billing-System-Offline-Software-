@@ -1,0 +1,30 @@
+@model ServiceStationBillingWeb.Models.CustomerListViewModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="page-heading">
+    <div><p class="eyebrow">Customer records</p><h1>Customers</h1></div>
+    @if (User.IsInRole("Admin")) { <a class="button button-primary" asp-action="Create">Add customer</a> }
+</div>
+@if (TempData["Notice"] is string notice) { <div class="notice">@notice</div> }
+<form method="get" class="toolbar">
+    <input name="search" value="@Model.Search" placeholder="Search by name or phone" aria-label="Search customers" />
+    <button class="button button-secondary" type="submit">Search</button>
+    @if (!string.IsNullOrWhiteSpace(Model.Search)) { <a class="button button-quiet" asp-action="Index">Clear</a> }
+</form>
+<section class="content-section">
+    <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Phone</th><th>Vehicles</th><th class="actions">Actions</th></tr></thead><tbody>
+    @foreach (var customer in Model.Customers)
+    {
+        <tr><td class="strong">@customer.Name</td><td>@customer.Phone</td><td>@customer.Vehicles</td><td class="actions">
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="text-link" asp-action="Edit" asp-route-id="@customer.Id">Edit</a>
+                <form asp-action="Delete" asp-route-id="@customer.Id" method="post" class="inline-form" onsubmit="return confirm('Delete this customer?');"><button class="danger-link" type="submit">Delete</button></form>
+            }
+        </td></tr>
+    }
+    </tbody></table></div>
+    @if (Model.Customers.Count == 0) { <div class="empty-state compact"><p>No customers match this search.</p></div> }
+</section>

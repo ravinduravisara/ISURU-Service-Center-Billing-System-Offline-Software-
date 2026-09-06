@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServiceStationBillingApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+921706ecd778776b4e0c6964f2218e4ed707ea6d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServiceStationBillingApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServiceStationBillingApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
